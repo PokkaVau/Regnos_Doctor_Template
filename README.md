@@ -1,5 +1,7 @@
 # Reusable Doctor Portfolio & Appointment Booking Website Template
 
+![Regnos Doctor Template Cover](assets/images/cover.png)
+
 A modern, minimal, premium, and highly responsive **Doctor Portfolio and Online Appointment Booking Website Template** developed using pure **HTML5, CSS3, and Vanilla JavaScript**.
 
 Designed specifically for clinical credibility, patient trust, rapid loading, and maximum appointment conversion.
