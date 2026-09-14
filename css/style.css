@@ -266,15 +266,26 @@ p:last-child {
   gap: 12px;
 }
 
-.brand-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-sm);
-  background-color: var(--primary);
-  color: #FFFFFF;
+.brand-avatar-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--primary);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(14, 116, 144, 0.25);
+  background-color: var(--primary-light);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.brand-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .brand-text {
@@ -381,6 +392,7 @@ p:last-child {
   font-size: 1.15rem;
   font-weight: 600;
   color: var(--primary);
+  line-height: 1.5;
   margin-bottom: 16px;
   display: block;
 }
@@ -480,20 +492,20 @@ p:last-child {
 
 .quick-info-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   background-color: #FFFFFF;
   border-radius: var(--radius-md);
-  padding: 24px;
+  padding: 24px 28px;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border);
 }
 
 .quick-info-item {
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding-right: 14px;
+  align-items: center;
+  gap: 16px;
+  padding-right: 20px;
   border-right: 1px solid var(--border);
 }
 
@@ -677,6 +689,7 @@ p:last-child {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 30px;
 }
@@ -1082,6 +1095,35 @@ p:last-child {
   color: var(--primary);
 }
 
+.contact-value-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.contact-sub-item {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.45;
+}
+
+.contact-sub-title {
+  font-weight: 600;
+  color: var(--text-main);
+  display: block;
+}
+
+.contact-sub-item a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contact-sub-item a:hover {
+  text-decoration: underline;
+}
+
 .map-wrapper {
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1108,6 +1150,14 @@ p:last-child {
   background-color: #0F172A;
   color: #94A3B8;
   padding: 60px 0 30px 0;
+}
+
+.footer p {
+  color: #CBD5E1;
+}
+
+.footer strong {
+  color: #FFFFFF;
 }
 
 .footer-grid {
@@ -1140,6 +1190,36 @@ p:last-child {
   margin-bottom: 16px;
 }
 
+.footer-chamber-schedule {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #CBD5E1;
+}
+
+.footer-chamber-title {
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.footer-chamber-contact {
+  color: #94A3B8;
+  font-size: 0.85rem;
+}
+
+.footer-chamber-contact a {
+  color: #38BDF8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-chamber-contact a:hover {
+  text-decoration: underline;
+}
+
 .footer-nav {
   list-style: none;
   display: flex;
@@ -1163,6 +1243,33 @@ p:last-child {
   justify-content: space-between;
   align-items: center;
   font-size: 0.85rem;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-regnos-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.footer-copy-text {
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.footer-regnos-link {
+  color: #38BDF8;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.88rem;
+  transition: color var(--transition);
+}
+
+.footer-regnos-link:hover {
+  color: #7DD3FC;
+  text-decoration: underline;
 }
 
 /* --------------------------------------------------------------------------
@@ -1192,3 +1299,218 @@ p:last-child {
   font-size: 0.92rem;
   border-radius: var(--radius-sm);
 }
+
+/* --------------------------------------------------------------------------
+   17. Call Chamber Selection Modal
+   -------------------------------------------------------------------------- */
+.call-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.68);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.call-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.call-modal-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.25);
+  border: 1px solid var(--border);
+  padding: 28px;
+  position: relative;
+  transform: scale(0.95) translateY(10px);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.call-modal-overlay.active .call-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.call-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.call-modal-badge {
+  display: inline-block;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.call-modal-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.call-modal-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.call-modal-close {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.call-modal-close:hover {
+  background-color: #F1F5F9;
+  color: var(--text-main);
+  transform: scale(1.05);
+}
+
+.call-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.call-option-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: #FFFFFF;
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.call-option-card:hover {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.call-option-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.call-option-card:hover .call-option-icon {
+  background-color: var(--primary);
+  color: #FFFFFF;
+}
+
+.call-option-info {
+  flex-grow: 1;
+}
+
+.call-option-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.call-option-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.call-option-detail {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  line-height: 1.35;
+}
+
+.call-option-number {
+  font-size: 0.88rem;
+  color: var(--text-body);
+}
+
+.call-option-number strong {
+  color: var(--primary);
+  font-size: 1rem;
+}
+
+.call-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  background-color: var(--primary);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.call-option-card:hover .call-action-btn {
+  background-color: var(--primary-dark);
+  box-shadow: 0 4px 10px rgba(14, 116, 144, 0.3);
+}
+
+@media (max-width: 540px) {
+  .call-modal-card {
+    padding: 22px 18px;
+  }
+  .call-option-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .call-action-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+  }
+}
+

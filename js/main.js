@@ -19,6 +19,7 @@ runWhenReady(() => {
   initFaqAccordion();
   initAppointmentForm();
   initSmoothScroll();
+  initCallModal();
 });
 
 /**
@@ -170,6 +171,12 @@ function initAppointmentForm() {
   const toast = document.getElementById('appointment-toast');
   if (!form) return;
 
+  const dateInputEl = document.getElementById('appointment-date');
+  if (dateInputEl) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInputEl.setAttribute('min', today);
+  }
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -305,3 +312,64 @@ function initSmoothScroll() {
     });
   });
 }
+
+/**
+ * 8. Call Chamber Selection Modal
+ */
+function initCallModal() {
+  const triggers = document.querySelectorAll('.call-modal-trigger');
+  const modal = document.getElementById('call-modal');
+  const closeBtn = document.getElementById('call-modal-close');
+
+  if (!modal) return;
+
+  const openModal = () => {
+    modal.removeAttribute('hidden');
+    // Force reflow for CSS transition
+    void modal.offsetWidth;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    triggers.forEach(t => t.setAttribute('aria-expanded', 'true'));
+    if (closeBtn) closeBtn.focus();
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    triggers.forEach(t => t.setAttribute('aria-expanded', 'false'));
+    setTimeout(() => {
+      if (!modal.classList.contains('active')) {
+        modal.setAttribute('hidden', '');
+      }
+    }, 250);
+  };
+
+  triggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal();
+    });
+  }
+
+  // Close when clicking overlay backdrop outside card
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+}
+
