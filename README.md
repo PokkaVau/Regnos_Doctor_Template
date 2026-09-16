@@ -24,8 +24,7 @@ Designed specifically for clinical credibility, patient trust, rapid loading, an
 Prof_Shakil_Portfolio/
 ├── index.html            # Main semantic HTML5 template with Schema.org JSON-LD
 ├── css/
-│   ├── style.css         # Modern medical design system (CSS variables, typography, cards)
-│   └── responsive.css    # Mobile-first responsive rules & sticky action bar
+│   └── style.css         # Modern medical design system (CSS variables, typography, responsive)
 ├── js/
 │   └── main.js           # Navigation spy, mobile drawer, chamber tabs, FAQ accordion, form
 ├── assets/

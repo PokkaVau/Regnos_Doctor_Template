@@ -3,22 +3,13 @@
  * Clean, lightweight, fully accessible Vanilla JavaScript
  */
 
-function runWhenReady(fn) {
-  if (document.readyState === 'interactive' || document.readyState === 'complete') {
-    setTimeout(fn, 1);
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
-  }
-}
-
-runWhenReady(() => {
+document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileMenu();
   initActiveNavSpy();
   initChamberTabs();
   initFaqAccordion();
   initAppointmentForm();
-  initSmoothScroll();
   initCallModal();
 });
 
@@ -112,23 +103,22 @@ function initActiveNavSpy() {
  * 4. Chamber Interactive Tabs Switching
  */
 function initChamberTabs() {
-  const tabBtns = document.querySelectorAll('.chamber-tab-btn');
-  const chamberCards = document.querySelectorAll('.chamber-card');
+  const nav = document.querySelector('.chamber-tab-nav');
+  if (!nav) return;
 
-  if (!tabBtns.length || !chamberCards.length) return;
+  nav.addEventListener('click', (e) => {
+    const btn = e.target.closest('.chamber-tab-btn');
+    if (!btn) return;
+    const targetId = btn.getAttribute('data-target');
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
+    nav.querySelectorAll('.chamber-tab-btn').forEach(b => {
+      const isSelected = b === btn;
+      b.classList.toggle('active', isSelected);
+      b.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+    });
 
-      tabBtns.forEach(b => b.classList.remove('active'));
-      chamberCards.forEach(c => c.classList.remove('active'));
-
-      btn.classList.add('active');
-      const targetCard = document.getElementById(targetId);
-      if (targetCard) {
-        targetCard.classList.add('active');
-      }
+    document.querySelectorAll('.chamber-card').forEach(card => {
+      card.classList.toggle('active', card.id === targetId);
     });
   });
 }
@@ -283,33 +273,6 @@ function initAppointmentForm() {
       el.addEventListener('input', () => markValid(el));
       el.addEventListener('change', () => markValid(el));
     }
-  });
-}
-
-/**
- * 7. Smooth Scrolling with Offset for Sticky Header
- */
-function initSmoothScroll() {
-  const anchors = document.querySelectorAll('a[href^="#"]');
-  const navHeight = 76;
-
-  anchors.forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href');
-      if (!targetId || targetId === '#') return;
-
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementPosition - navHeight;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
   });
 }
 
