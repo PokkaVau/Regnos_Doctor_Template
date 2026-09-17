@@ -11,17 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initAppointmentForm();
   initCallModal();
+  initScrollReveal();
 });
 
 /**
- * 1. Sticky Navbar on Scroll
+ * 1. Sticky Floating Island Navbar on Scroll
  */
 function initNavbar() {
-  const navbar = document.querySelector('.navbar');
+  const navbar = document.querySelector('.navbar-island-wrapper, .navbar');
   if (!navbar) return;
 
   const handleScroll = () => {
-    if (window.scrollY > 30) {
+    if (window.scrollY > 20) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
@@ -33,7 +34,7 @@ function initNavbar() {
 }
 
 /**
- * 2. Mobile Hamburger Menu Drawer
+ * 2. Mobile Hamburger Menu Drawer (Geometric Morphing)
  */
 function initMobileMenu() {
   const mobileToggle = document.getElementById('mobile-toggle');
@@ -45,9 +46,6 @@ function initMobileMenu() {
   const toggleDrawer = () => {
     const isActive = navLinks.classList.toggle('active');
     mobileToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-    mobileToggle.innerHTML = isActive 
-      ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>'
-      : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
     document.body.style.overflow = isActive ? 'hidden' : '';
   };
 
@@ -335,4 +333,27 @@ function initCallModal() {
     }
   });
 }
+
+/**
+ * 9. Scroll Reveal Dynamics (GPU-Safe Native IntersectionObserver)
+ */
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.fade-reveal');
+  if (!revealElements.length) return;
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+}
+
 

@@ -20,13 +20,13 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
 
-  <!-- Google Fonts: Inter -->
+  <!-- Google Fonts: Plus Jakarta Sans (Premium Editorial Medical Typography) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=4.0">
+  <link rel="stylesheet" href="css/style.css?v=5.0">
 
   <!-- Schema.org Medical WebPage JSON-LD -->
   <script type="application/ld+json">
@@ -51,15 +51,15 @@
 <body>
 
   <!-- =========================================================================
-       1. NAVBAR (Sticky on Scroll + Mobile Hamburger Drawer)
+       1. FLOATING ISLAND NAVBAR (Detached Frosted Glass Island + Mobile Drawer)
        ========================================================================= -->
-  <header class="navbar" id="navbar">
-    <div class="container nav-container">
+  <header class="navbar-island-wrapper" id="navbar">
+    <div class="navbar-island">
       
       <!-- CUSTOMIZE: Doctor Brand / Logo -->
       <a href="#home" class="brand" aria-label="Return to top">
         <div class="brand-avatar-box">
-          <img src="assets/images/profile.jpg" alt="Prof. Dr. Shakil" class="brand-avatar-img" width="44" height="44">
+          <img src="assets/images/profile.jpg" alt="Prof. Dr. Shakil" class="brand-avatar-img" width="42" height="42">
         </div>
         <div class="brand-text">
           <span class="brand-name">Prof. Dr. Shakil</span>
@@ -79,12 +79,17 @@
 
       <!-- Desktop Primary CTA & Mobile Toggle -->
       <div class="nav-actions">
-        <a href="#appointment" class="btn btn-primary btn-sm">
+        <a href="#appointment" class="btn btn-primary btn-sm btn-pill">
           <span>Book Appointment</span>
+          <span class="btn-icon-bubble" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
         </a>
 
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <span class="hamburger-bar bar-1"></span>
+          <span class="hamburger-bar bar-2"></span>
+          <span class="hamburger-bar bar-3"></span>
         </button>
       </div>
 
@@ -101,10 +106,10 @@
       <div class="container hero-grid">
         
         <!-- Left Column: Doctor Identity & Conversion CTAs -->
-        <div class="hero-left">
+        <div class="hero-left fade-reveal">
           <!-- CUSTOMIZE: Specialization Tag -->
           <div class="hero-doctor-badge">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span class="badge-dot" aria-hidden="true"></span>
             <span>Pediatric Surgeon &bull; Regenerative Medicine</span>
           </div>
 
@@ -119,30 +124,34 @@
 
           <!-- Dual CTAs -->
           <div class="hero-cta-group">
-            <a href="#appointment" class="btn btn-primary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <a href="#appointment" class="btn btn-primary btn-pill">
               <span>Book Appointment</span>
+              <span class="btn-icon-bubble" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
             </a>
             <!-- Doctor Call Modal Trigger -->
-            <button type="button" class="btn btn-outline call-modal-trigger" id="hero-call-btn" aria-haspopup="dialog" aria-expanded="false">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <button type="button" class="btn btn-outline btn-pill call-modal-trigger" id="hero-call-btn" aria-haspopup="dialog" aria-expanded="false">
+              <span class="btn-icon-bubble icon-leading" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </span>
               <span>Call Now</span>
             </button>
           </div>
         </div>
 
-        <!-- Right Column: Doctor Professional Image & Live Status -->
-        <div class="hero-right">
-          <div class="hero-image-wrapper">
-            <div class="hero-image-card">
+        <!-- Right Column: Doctor Professional Image & Live Status (Doppelrand Double-Bezel) -->
+        <div class="hero-right fade-reveal">
+          <div class="hero-image-outer doppel-shell">
+            <div class="hero-image-card doppel-core">
               <!-- CUSTOMIZE: Doctor Portrait Image -->
               <img src="assets/images/profile.jpg" alt="Prof. Dr. S. M. Khalid Mahmud Shakil" width="380" height="440" loading="eager">
-            </div>
-            
-            <!-- Live Availability Badge -->
-            <div class="availability-badge">
-              <span class="pulse-dot" aria-hidden="true"></span>
-              <span>Available for Consultations Today</span>
+              
+              <!-- Live Availability Badge -->
+              <div class="availability-badge">
+                <span class="pulse-dot" aria-hidden="true"></span>
+                <span>Available for Consultations Today</span>
+              </div>
             </div>
           </div>
         </div>
@@ -152,42 +161,48 @@
 
 
     <!-- =========================================================================
-         3. QUICK INFORMATION (4 Compact Highlight Items)
+         3. QUICK INFORMATION (Compact Highlight Items with Double-Bezel Cards)
          ========================================================================= -->
     <section class="quick-info-section" id="quick-info" aria-label="Doctor Quick Overview">
       <div class="container">
-        <div class="quick-info-grid">
+        <div class="quick-info-grid fade-reveal">
           
           <!-- CUSTOMIZE: Item 1 - Specialization -->
-          <div class="quick-info-item">
-            <div class="quick-info-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-            </div>
-            <div class="quick-info-content">
-              <span class="quick-info-label">Specialization</span>
-              <span class="quick-info-value">Pediatric &amp; Neonatal Surgery</span>
+          <div class="quick-info-item doppel-shell">
+            <div class="quick-info-inner doppel-core">
+              <div class="quick-info-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+              </div>
+              <div class="quick-info-content">
+                <span class="quick-info-label">Specialization</span>
+                <span class="quick-info-value">Pediatric &amp; Neonatal Surgery</span>
+              </div>
             </div>
           </div>
 
           <!-- CUSTOMIZE: Item 2 - Experience -->
-          <div class="quick-info-item">
-            <div class="quick-info-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            </div>
-            <div class="quick-info-content">
-              <span class="quick-info-label">Experience</span>
-              <span class="quick-info-value">25+ Years Clinical Practice</span>
+          <div class="quick-info-item doppel-shell">
+            <div class="quick-info-inner doppel-core">
+              <div class="quick-info-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div class="quick-info-content">
+                <span class="quick-info-label">Experience</span>
+                <span class="quick-info-value">25+ Years Clinical Practice</span>
+              </div>
             </div>
           </div>
 
           <!-- CUSTOMIZE: Item 3 - Chamber Location -->
-          <div class="quick-info-item">
-            <div class="quick-info-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            </div>
-            <div class="quick-info-content">
-              <span class="quick-info-label">Primary Job Attachment</span>
-              <span class="quick-info-value">Bangladesh Shishu Hospital &amp; Institute</span>
+          <div class="quick-info-item doppel-shell">
+            <div class="quick-info-inner doppel-core">
+              <div class="quick-info-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div class="quick-info-content">
+                <span class="quick-info-label">Primary Job Attachment</span>
+                <span class="quick-info-value">Bangladesh Shishu Hospital &amp; Institute</span>
+              </div>
             </div>
           </div>
 
@@ -366,13 +381,13 @@
     <section class="section" id="chamber">
       <div class="container">
         
-        <div class="section-header">
+        <div class="section-header fade-reveal">
           <span class="section-badge">Chamber &amp; Visiting Schedule</span>
           <h2 class="section-title">Where to Consult the Doctor</h2>
           <p class="section-desc">Select a chamber below to view exact visiting days, consultation hours, fees, and serial numbers.</p>
         </div>
 
-        <div class="chamber-tabs-wrapper">
+        <div class="chamber-tabs-wrapper fade-reveal">
           
           <!-- Chamber Switcher Tabs -->
           <div class="chamber-tab-nav" role="tablist">
@@ -384,119 +399,140 @@
             </button>
           </div>
 
-          <!-- Chamber 1 Card -->
-          <div class="chamber-card active" id="chamber-1" role="tabpanel">
-            <div class="chamber-header">
-              <div>
-                <!-- CUSTOMIZE: Chamber 1 Details -->
-                <span class="chamber-badge">Stem Cell Center</span>
-                <h3 class="chamber-name">Concord Stem Cell Limited</h3>
-                <p class="chamber-address">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <span>3 Sima Blossom, 7th Floor, Dhanmondi 27, Dhaka 1209</span>
-                </p>
-              </div>
-
-              <div class="chamber-fee-badge">
-                <span class="chamber-fee-label">For Appointment</span>
-                <span class="chamber-fee-amount">10670</span>
-              </div>
-            </div>
-
-            <!-- Schedule Info -->
-            <div class="chamber-info-grid">
-              <div class="chamber-info-box">
-                <div class="chamber-info-title">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  <span>Visiting Days</span>
+          <!-- Chamber 1 Card (Doppelrand Double-Bezel) -->
+          <div class="chamber-card active doppel-shell" id="chamber-1" role="tabpanel">
+            <div class="chamber-inner doppel-core">
+              <div class="chamber-header">
+                <div>
+                  <!-- CUSTOMIZE: Chamber 1 Details -->
+                  <span class="chamber-badge">Stem Cell Center</span>
+                  <h3 class="chamber-name">Concord Stem Cell Limited</h3>
+                  <p class="chamber-address">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>3 Sima Blossom, 7th Floor, Dhanmondi 27, Dhaka 1209</span>
+                  </p>
                 </div>
-                <div class="chamber-info-detail">Saturday, Monday, Tuesday</div>
-              </div>
 
-              <div class="chamber-info-box">
-                <div class="chamber-info-title">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  <span>Visiting Hours</span>
+                <div class="chamber-fee-badge">
+                  <span class="chamber-fee-label">For Appointment</span>
+                  <span class="chamber-fee-amount">10670</span>
                 </div>
-                <div class="chamber-info-detail">03:00 PM — 05:00 PM</div>
               </div>
-            </div>
 
-            <!-- Actions -->
-            <div class="chamber-actions">
-              <a href="tel:10670" class="btn btn-primary btn-sm">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                <span>Call Hotline (10670)</span>
-              </a>
+              <!-- Schedule Info -->
+              <div class="chamber-info-grid">
+                <div class="chamber-info-box">
+                  <div class="chamber-info-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Visiting Days</span>
+                  </div>
+                  <div class="chamber-info-detail">Saturday, Monday, Tuesday</div>
+                </div>
 
-              <a href="https://maps.google.com/?q=Concord+Stem+Cell+Limited+3+Sima+Blossom+Dhanmondi+27+Dhaka" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
-                <span>Google Maps</span>
-              </a>
+                <div class="chamber-info-box">
+                  <div class="chamber-info-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>Visiting Hours</span>
+                  </div>
+                  <div class="chamber-info-detail">03:00 PM — 05:00 PM</div>
+                </div>
+              </div>
 
-              <a href="#appointment" class="btn btn-secondary btn-sm">
-                <span>Book Appointment Online</span>
-              </a>
+              <!-- Actions -->
+              <div class="chamber-actions">
+                <a href="tel:10670" class="btn btn-primary btn-sm btn-pill">
+                  <span class="btn-icon-bubble icon-leading" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </span>
+                  <span>Call Hotline (10670)</span>
+                </a>
+
+                <a href="https://maps.google.com/?q=Concord+Stem+Cell+Limited+3+Sima+Blossom+Dhanmondi+27+Dhaka" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm btn-pill">
+                  <span class="btn-icon-bubble icon-leading" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                  </span>
+                  <span>Google Maps</span>
+                </a>
+
+                <a href="#appointment" class="btn btn-secondary btn-sm btn-pill">
+                  <span>Book Appointment Online</span>
+                  <span class="btn-icon-bubble" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- Chamber 2 Card -->
-          <div class="chamber-card" id="chamber-2" role="tabpanel">
-            <div class="chamber-header">
-              <div>
-                <!-- CUSTOMIZE: Chamber 2 Details -->
-                <span class="chamber-badge">Uttara Chamber</span>
-                <h3 class="chamber-name">Dhaka Specialized Hospital</h3>
-                <p class="chamber-address">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                  <span>78 Gausal Azam Ave, Sector 13, Uttara, Dhaka-1230</span>
-                </p>
-              </div>
-
-              <div class="chamber-fee-badge">
-                <span class="chamber-fee-label">For Appointment</span>
-                <span class="chamber-fee-amount">01407099500</span>
-              </div>
-            </div>
-
-            <!-- Schedule Info -->
-            <div class="chamber-info-grid">
-              <div class="chamber-info-box">
-                <div class="chamber-info-title">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                  <span>Visiting Days</span>
+          <!-- Chamber 2 Card (Doppelrand Double-Bezel) -->
+          <div class="chamber-card doppel-shell" id="chamber-2" role="tabpanel">
+            <div class="chamber-inner doppel-core">
+              <div class="chamber-header">
+                <div>
+                  <!-- CUSTOMIZE: Chamber 2 Details -->
+                  <span class="chamber-badge">Uttara Chamber</span>
+                  <h3 class="chamber-name">Dhaka Specialized Hospital</h3>
+                  <p class="chamber-address">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>78 Gausal Azam Ave, Sector 13, Uttara, Dhaka-1230</span>
+                  </p>
                 </div>
-                <div class="chamber-info-detail">Saturday to Thursday</div>
-              </div>
 
-              <div class="chamber-info-box">
-                <div class="chamber-info-title">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  <span>Visiting Hours</span>
+                <div class="chamber-fee-badge">
+                  <span class="chamber-fee-label">For Appointment</span>
+                  <span class="chamber-fee-amount">01407099500</span>
                 </div>
-                <div class="chamber-info-detail">06:00 PM — 10:00 PM</div>
               </div>
-            </div>
 
-            <!-- Actions -->
-            <div class="chamber-actions">
-              <a href="tel:01407099500" class="btn btn-primary btn-sm">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                <span>Call for Serial (01407099500)</span>
-              </a>
+              <!-- Schedule Info -->
+              <div class="chamber-info-grid">
+                <div class="chamber-info-box">
+                  <div class="chamber-info-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Visiting Days</span>
+                  </div>
+                  <div class="chamber-info-detail">Saturday to Thursday</div>
+                </div>
 
-              <a href="https://wa.me/8801407099500?text=Hello%20Doctor,%20I%20want%20to%20book%20an%20appointment%20at%20Dhaka%20Specialized%20Hospital" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
-                <span>WhatsApp Message</span>
-              </a>
+                <div class="chamber-info-box">
+                  <div class="chamber-info-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>Visiting Hours</span>
+                  </div>
+                  <div class="chamber-info-detail">06:00 PM — 10:00 PM</div>
+                </div>
+              </div>
 
-              <a href="https://maps.google.com/?q=Dhaka+Specialized+Hospital+78+Gausal+Azam+Ave+Sector+13+Uttara+Dhaka" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
-                <span>Google Maps</span>
-              </a>
+              <!-- Actions -->
+              <div class="chamber-actions">
+                <a href="tel:01407099500" class="btn btn-primary btn-sm btn-pill">
+                  <span class="btn-icon-bubble icon-leading" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </span>
+                  <span>Call for Serial (01407099500)</span>
+                </a>
 
-              <a href="#appointment" class="btn btn-secondary btn-sm">
-                <span>Book Appointment Online</span>
-              </a>
+                <a href="https://wa.me/8801407099500?text=Hello%20Doctor,%20I%20want%20to%20book%20an%20appointment%20at%20Dhaka%20Specialized%20Hospital" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm btn-pill">
+                  <span class="btn-icon-bubble icon-leading" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.581 1.761.879 2.796.879 3.182 0 5.768-2.587 5.768-5.766.001-3.187-2.575-5.766-5.768-5.766z"/></svg>
+                  </span>
+                  <span>WhatsApp Message</span>
+                </a>
+
+                <a href="https://maps.google.com/?q=Dhaka+Specialized+Hospital+78+Gausal+Azam+Ave+Sector+13+Uttara+Dhaka" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm btn-pill">
+                  <span class="btn-icon-bubble icon-leading" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+                  </span>
+                  <span>Google Maps</span>
+                </a>
+
+                <a href="#appointment" class="btn btn-secondary btn-sm btn-pill">
+                  <span>Book Appointment Online</span>
+                  <span class="btn-icon-bubble" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -507,82 +543,86 @@
 
 
     <!-- =========================================================================
-         7. APPOINTMENT FORM (Clean, Simple, Validated)
+         7. APPOINTMENT FORM (Clean, Simple, Validated with Doppelrand Framing)
          ========================================================================= -->
     <section class="section section-subtle" id="appointment">
       <div class="container">
         
-        <div class="section-header">
+        <div class="section-header fade-reveal">
           <span class="section-badge">Fast Serial Booking</span>
           <h2 class="section-title">Request an Appointment</h2>
           <p class="section-desc">Fill in the patient details below. Our chamber serial assistant will promptly call you back to confirm your appointment time.</p>
         </div>
 
-        <div class="appointment-wrapper">
-          <form id="appointment-form" novalidate>
-            
-            <div class="form-grid">
+        <div class="appointment-wrapper doppel-shell fade-reveal">
+          <div class="appointment-core doppel-core">
+            <form id="appointment-form" novalidate>
               
-              <!-- Patient Name -->
-              <div class="form-group">
-                <label for="patient-name" class="form-label">Patient Name <span class="required">*</span></label>
-                <input type="text" id="patient-name" class="form-control" placeholder="e.g. Master Aryan Ahmed" required>
-                <span class="form-feedback">Please enter patient name.</span>
+              <div class="form-grid">
+                
+                <!-- Patient Name -->
+                <div class="form-group">
+                  <label for="patient-name" class="form-label">Patient Name <span class="required">*</span></label>
+                  <input type="text" id="patient-name" class="form-control" placeholder="e.g. Master Aryan Ahmed" required>
+                  <span class="form-feedback">Please enter patient name.</span>
+                </div>
+
+                <!-- Phone Number -->
+                <div class="form-group">
+                  <label for="patient-phone" class="form-label">Phone / Mobile Number <span class="required">*</span></label>
+                  <input type="tel" id="patient-phone" class="form-control" placeholder="e.g. 01711-XXXXXX" required>
+                  <span class="form-feedback">Please enter valid phone number.</span>
+                </div>
+
+                <!-- Preferred Chamber -->
+                <div class="form-group">
+                  <label for="appointment-chamber" class="form-label">Select Chamber <span class="required">*</span></label>
+                  <select id="appointment-chamber" class="form-control" required>
+                    <option value="Concord Stem Cell Limited (Dhanmondi)">Concord Stem Cell Limited — Dhanmondi 27 (Stem Cell)</option>
+                    <option value="Dhaka Specialized Hospital (Uttara)">Dhaka Specialized Hospital — Uttara Sector 13</option>
+                  </select>
+                </div>
+
+                <!-- Preferred Date -->
+                <div class="form-group">
+                  <label for="appointment-date" class="form-label">Preferred Date <span class="required">*</span></label>
+                  <input type="date" id="appointment-date" class="form-control" required>
+                  <span class="form-feedback">Please pick a date.</span>
+                </div>
+
+                <!-- Preferred Time Slot -->
+                <div class="form-group form-group-full">
+                  <label for="appointment-time" class="form-label">Preferred Time Window <span class="required">*</span></label>
+                  <select id="appointment-time" class="form-control" required>
+                    <option value="">-- Choose preferred consultation window --</option>
+                    <option value="Morning Slot (10:00 AM - 12:00 PM)">Morning Slot (10:00 AM - 12:00 PM)</option>
+                    <option value="Noon Slot (12:00 PM - 02:00 PM)">Noon Slot (12:00 PM - 02:00 PM)</option>
+                    <option value="Evening Slot (06:00 PM - 08:30 PM)">Evening Slot (06:00 PM - 08:30 PM)</option>
+                  </select>
+                  <span class="form-feedback">Please select a time window.</span>
+                </div>
+
+                <!-- Problem Message -->
+                <div class="form-group form-group-full">
+                  <label for="patient-message" class="form-label">Brief Problem / Symptoms <span class="required">*</span></label>
+                  <textarea id="patient-message" class="form-control" rows="3" placeholder="Briefly describe the symptoms, age of patient, or previous surgery reports..." required></textarea>
+                  <span class="form-feedback">Please describe problem briefly.</span>
+                </div>
+
               </div>
 
-              <!-- Phone Number -->
-              <div class="form-group">
-                <label for="patient-phone" class="form-label">Phone / Mobile Number <span class="required">*</span></label>
-                <input type="tel" id="patient-phone" class="form-control" placeholder="e.g. 01711-XXXXXX" required>
-                <span class="form-feedback">Please enter valid phone number.</span>
-              </div>
+              <button type="submit" class="btn btn-primary btn-block btn-pill">
+                <span>Submit Appointment Request</span>
+                <span class="btn-icon-bubble" aria-hidden="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </span>
+              </button>
 
-              <!-- Preferred Chamber -->
-              <div class="form-group">
-                <label for="appointment-chamber" class="form-label">Select Chamber <span class="required">*</span></label>
-                <select id="appointment-chamber" class="form-control" required>
-                  <option value="Concord Stem Cell Limited (Dhanmondi)">Concord Stem Cell Limited — Dhanmondi 27 (Stem Cell)</option>
-                  <option value="Dhaka Specialized Hospital (Uttara)">Dhaka Specialized Hospital — Uttara Sector 13</option>
-                </select>
-              </div>
+              <!-- Feedback Toast Notification -->
+              <div id="appointment-toast" class="form-toast" role="alert" aria-live="polite"></div>
 
-              <!-- Preferred Date -->
-              <div class="form-group">
-                <label for="appointment-date" class="form-label">Preferred Date <span class="required">*</span></label>
-                <input type="date" id="appointment-date" class="form-control" required>
-                <span class="form-feedback">Please pick a date.</span>
-              </div>
-
-              <!-- Preferred Time Slot -->
-              <div class="form-group form-group-full">
-                <label for="appointment-time" class="form-label">Preferred Time Window <span class="required">*</span></label>
-                <select id="appointment-time" class="form-control" required>
-                  <option value="">-- Choose preferred consultation window --</option>
-                  <option value="Morning Slot (10:00 AM - 12:00 PM)">Morning Slot (10:00 AM - 12:00 PM)</option>
-                  <option value="Noon Slot (12:00 PM - 02:00 PM)">Noon Slot (12:00 PM - 02:00 PM)</option>
-                  <option value="Evening Slot (06:00 PM - 08:30 PM)">Evening Slot (06:00 PM - 08:30 PM)</option>
-                </select>
-                <span class="form-feedback">Please select a time window.</span>
-              </div>
-
-              <!-- Problem Message -->
-              <div class="form-group form-group-full">
-                <label for="patient-message" class="form-label">Brief Problem / Symptoms <span class="required">*</span></label>
-                <textarea id="patient-message" class="form-control" rows="3" placeholder="Briefly describe the symptoms, age of patient, or previous surgery reports..." required></textarea>
-                <span class="form-feedback">Please describe problem briefly.</span>
-              </div>
-
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-              <span>Submit Appointment Request</span>
-            </button>
-
-            <!-- Feedback Toast Notification -->
-            <div id="appointment-toast" class="form-toast" role="alert" aria-live="polite"></div>
-
-          </form>
+            </form>
+          </div>
         </div>
 
       </div>
@@ -590,67 +630,73 @@
 
 
     <!-- =========================================================================
-         8. PATIENT REVIEWS (Only 3 Verified Testimonial Cards)
+         8. PATIENT REVIEWS (Verified Testimonial Cards with Doppelrand Shell)
          ========================================================================= -->
     <section class="section" id="reviews">
       <div class="container">
         
-        <div class="section-header">
+        <div class="section-header fade-reveal">
           <span class="section-badge">Patient Trust</span>
           <h2 class="section-title">What Families Say</h2>
           <p class="section-desc">Real experiences from parents who entrusted their children's surgery and recovery to Dr. Shakil.</p>
         </div>
 
-        <div class="reviews-grid">
+        <div class="reviews-grid fade-reveal">
           
           <!-- Testimonial 1 -->
-          <div class="review-card">
-            <div class="review-stars" aria-label="5 out of 5 stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="review-text">
-              “Professor Shakil performed surgery on our newborn son for an abdominal condition. From the very first consultation, his calm confidence and gentle communication removed all our anxiety. Our child is thriving and healthy today.”
-            </p>
-            <div class="review-author">
-              <span class="review-name">Anwara Begum</span>
-              <span class="verified-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Verified Patient</span>
-              </span>
+          <div class="review-card doppel-shell">
+            <div class="review-inner doppel-core">
+              <div class="review-stars" aria-label="5 out of 5 stars">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="review-text">
+                “Professor Shakil performed surgery on our newborn son for an abdominal condition. From the very first consultation, his calm confidence and gentle communication removed all our anxiety. Our child is thriving and healthy today.”
+              </p>
+              <div class="review-author">
+                <span class="review-name">Anwara Begum</span>
+                <span class="verified-tag">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Verified Patient</span>
+                </span>
+              </div>
             </div>
           </div>
 
           <!-- Testimonial 2 -->
-          <div class="review-card">
-            <div class="review-stars" aria-label="5 out of 5 stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="review-text">
-              “One of the most humble, patient, and knowledgeable doctors we have ever met. He spent ample time explaining the treatment steps in simple words so we felt completely safe. Highly recommended for pediatric surgery.”
-            </p>
-            <div class="review-author">
-              <span class="review-name">Md. Rafiqul Islam</span>
-              <span class="verified-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Verified Patient</span>
-              </span>
+          <div class="review-card doppel-shell">
+            <div class="review-inner doppel-core">
+              <div class="review-stars" aria-label="5 out of 5 stars">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="review-text">
+                “One of the most humble, patient, and knowledgeable doctors we have ever met. He spent ample time explaining the treatment steps in simple words so we felt completely safe. Highly recommended for pediatric surgery.”
+              </p>
+              <div class="review-author">
+                <span class="review-name">Md. Rafiqul Islam</span>
+                <span class="verified-tag">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Verified Patient</span>
+                </span>
+              </div>
             </div>
           </div>
 
           <!-- Testimonial 3 -->
-          <div class="review-card">
-            <div class="review-stars" aria-label="5 out of 5 stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="review-text">
-              “As a practicing physician myself, I entrust my family only to top-tier academic leaders. Professor Shakil's surgical precision in congenital anomalies is truly second to none in Bangladesh.”
-            </p>
-            <div class="review-author">
-              <span class="review-name">Dr. Tanvir Ahmed</span>
-              <span class="verified-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Physician &amp; Parent</span>
-              </span>
+          <div class="review-card doppel-shell">
+            <div class="review-inner doppel-core">
+              <div class="review-stars" aria-label="5 out of 5 stars">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <p class="review-text">
+                “As a practicing physician myself, I entrust my family only to top-tier academic leaders. Professor Shakil's surgical precision in congenital anomalies is truly second to none in Bangladesh.”
+              </p>
+              <div class="review-author">
+                <span class="review-name">Dr. Tanvir Ahmed</span>
+                <span class="verified-tag">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Physician &amp; Parent</span>
+                </span>
+              </div>
             </div>
           </div>
 
@@ -872,14 +918,15 @@
       </div>
 
       <div class="footer-bottom">
-        <div class="footer-regnos-block">
-          <span class="footer-copy-text">Regnos. All Rights Reserved</span>
-          <a href="https://regnons.vercel.app/#" target="_blank" rel="noopener noreferrer" class="footer-regnos-link">
-            https://regnons.vercel.app/#
-          </a>
+        <div class="footer-copyright">
+          &copy; <span id="current-year">2026</span> All rights reserved by Prof. Dr. S. M. Khalid Mahmud Shakil
         </div>
-        <div style="color: #94A3B8;">
-          Designed for clinical trust, fast appointments &amp; patient care.
+        <div class="footer-credits">
+          <span>Designed and Developed by</span>
+          <a href="https://regnons.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-regnos-link" aria-label="Visit Regnos official website">
+            <span>Regnos</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
         </div>
       </div>
 
@@ -893,14 +940,18 @@
   <aside class="mobile-sticky-bar" aria-label="Mobile quick actions">
     <div class="mobile-sticky-group">
       <!-- Call Button Trigger -->
-      <button type="button" class="btn btn-outline call-modal-trigger" id="mobile-call-btn" aria-haspopup="dialog" aria-expanded="false">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      <button type="button" class="btn btn-outline btn-pill call-modal-trigger" id="mobile-call-btn" aria-haspopup="dialog" aria-expanded="false">
+        <span class="btn-icon-bubble icon-leading" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        </span>
         <span>Call Now</span>
       </button>
       <!-- Book Appointment Button -->
-      <a href="#appointment" class="btn btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <a href="#appointment" class="btn btn-primary btn-pill">
         <span>Book Serial</span>
+        <span class="btn-icon-bubble" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
       </a>
     </div>
   </aside>
@@ -909,60 +960,61 @@
        13. CALL CHAMBER SELECTOR MODAL (Popup on Call Now Click)
        ========================================================================= -->
   <div class="call-modal-overlay" id="call-modal" role="dialog" aria-modal="true" aria-labelledby="call-modal-title" hidden>
-    <div class="call-modal-card">
-      <div class="call-modal-header">
-        <div class="call-modal-header-text">
-          <span class="call-modal-badge">Direct Chamber Call</span>
-          <h3 class="call-modal-title" id="call-modal-title">Select Chamber to Call</h3>
-          <p class="call-modal-subtitle">Choose a chamber below to directly call for serial booking &amp; inquiries</p>
+    <div class="call-modal-card doppel-shell">
+      <div class="call-modal-inner doppel-core">
+        <div class="call-modal-header">
+          <div class="call-modal-header-text">
+            <span class="call-modal-badge">Direct Chamber Call</span>
+            <h3 class="call-modal-title" id="call-modal-title">Select Chamber to Call</h3>
+            <p class="call-modal-subtitle">Choose a chamber below to directly call for serial booking &amp; inquiries</p>
+          </div>
+          <button type="button" class="call-modal-close" id="call-modal-close" aria-label="Close modal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
         </div>
-        <button type="button" class="call-modal-close" id="call-modal-close" aria-label="Close modal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
-      </div>
 
-      <div class="call-modal-body">
-        <!-- Chamber 1 Call Option -->
-        <a href="tel:10670" class="call-option-card">
-          <div class="call-option-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          </div>
-          <div class="call-option-info">
-            <div class="call-option-tag">Chamber 1 &bull; Stem Cell Center</div>
-            <h4 class="call-option-name">Concord Stem Cell Limited</h4>
-            <p class="call-option-detail">3 Sima Blossom, Dhanmondi 27 &bull; Sat, Mon, Tue (03:00 PM – 05:00 PM)</p>
-            <div class="call-option-number">
-              Hotline: <strong>10670</strong>
+        <div class="call-modal-body">
+          <!-- Chamber 1 Call Option -->
+          <a href="tel:10670" class="call-option-card">
+            <div class="call-option-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </div>
-          </div>
-          <div class="call-option-arrow">
-            <span class="call-action-btn">Call 10670</span>
-          </div>
-        </a>
+            <div class="call-option-info">
+              <div class="call-option-tag">Chamber 1 &bull; Stem Cell Center</div>
+              <h4 class="call-option-name">Concord Stem Cell Limited</h4>
+              <p class="call-option-detail">3 Sima Blossom, Dhanmondi 27 &bull; Sat, Mon, Tue (03:00 PM – 05:00 PM)</p>
+              <div class="call-option-number">
+                Hotline: <strong>10670</strong>
+              </div>
+            </div>
+            <div class="call-option-arrow">
+              <span class="call-action-btn">Call 10670</span>
+            </div>
+          </a>
 
-        <!-- Chamber 2 Call Option -->
-        <a href="tel:01407099500" class="call-option-card">
-          <div class="call-option-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          </div>
-          <div class="call-option-info">
-            <div class="call-option-tag">Chamber 2 &bull; Uttara</div>
-            <h4 class="call-option-name">Dhaka Specialized Hospital</h4>
-            <p class="call-option-detail">Sector 13, Uttara &bull; Sat to Thu (06:00 PM – 10:00 PM)</p>
-            <div class="call-option-number">
-              Serial Desk: <strong>01407099500</strong>
+          <!-- Chamber 2 Call Option -->
+          <a href="tel:01407099500" class="call-option-card">
+            <div class="call-option-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
             </div>
-          </div>
-          <div class="call-option-arrow">
-            <span class="call-action-btn">Call Now</span>
-          </div>
-        </a>
+            <div class="call-option-info">
+              <div class="call-option-tag">Chamber 2 &bull; Uttara</div>
+              <h4 class="call-option-name">Dhaka Specialized Hospital</h4>
+              <p class="call-option-detail">Sector 13, Uttara &bull; Sat to Thu (06:00 PM – 10:00 PM)</p>
+              <div class="call-option-number">
+                Serial Desk: <strong>01407099500</strong>
+              </div>
+            </div>
+            <div class="call-option-arrow">
+              <span class="call-action-btn">Call Now</span>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </div>
 
-
   <!-- Scripts (Single, Fast, Lightweight) -->
-  <script src="js/main.js?v=4.0" defer></script>
+  <script src="js/main.js?v=5.0" defer></script>
 </body>
 </html>
