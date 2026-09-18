@@ -895,13 +895,132 @@ p:last-child {
 
 .service-title {
   margin-bottom: 10px;
-  font-size: 1.2rem;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
 }
 
 .service-desc {
   color: var(--text-muted);
-  font-size: 0.96rem;
+  font-size: 0.94rem;
   line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 992px) {
+  .service-title {
+    min-height: 3.3rem;
+  }
+  .service-desc {
+    min-height: 4.8rem;
+  }
+}
+
+.service-proc-wrap {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px dashed rgba(15, 23, 42, 0.1);
+}
+
+.service-proc-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.service-procedures {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.service-procedures li {
+  font-size: 0.86rem;
+  color: var(--text-body);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.45;
+}
+
+.service-procedures .proc-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* Services Matrix Table */
+.services-matrix-card {
+  margin-top: 64px;
+  background: #FFFFFF;
+  border: 1px solid var(--border-shell);
+  border-radius: var(--radius-core);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-ambient);
+}
+
+.matrix-header {
+  margin-bottom: 22px;
+}
+
+.matrix-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 8px;
+  margin-bottom: 6px;
+}
+
+.matrix-desc {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+}
+
+.matrix-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.matrix-table th {
+  background: var(--bg-subtle);
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  white-space: nowrap;
+}
+
+.matrix-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+  color: var(--text-body);
+  line-height: 1.6;
+  vertical-align: top;
+}
+
+.matrix-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.matrix-table tbody tr:hover {
+  background: rgba(14, 116, 144, 0.025);
 }
 
 /* --------------------------------------------------------------------------
@@ -1110,6 +1229,20 @@ p:last-child {
   color: #EF4444;
   margin-top: 6px;
   font-weight: 500;
+}
+
+.chamber-hint-text {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: rgba(14, 116, 144, 0.06);
+  border: 1px solid rgba(14, 116, 144, 0.12);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--primary);
+  font-weight: 600;
 }
 
 /* Success Toast Feedback */
@@ -1839,6 +1972,16 @@ p:last-child {
 
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 26px 20px;
+  }
+
+  .services-matrix-card {
+    padding: 26px 18px;
+    margin-top: 40px;
   }
 
   .appointment-core {

@@ -152,14 +152,87 @@ function initFaqAccordion() {
 }
 
 /**
- * 6. Appointment Form Validation & Submission Feedback
+ * 6. Appointment Form Validation & Dynamic Chamber Time Slots
  */
 function initAppointmentForm() {
   const form = document.getElementById('appointment-form');
   const toast = document.getElementById('appointment-toast');
-  if (!form) return;
-
+  const chamberSelect = document.getElementById('appointment-chamber');
+  const timeSelect = document.getElementById('appointment-time');
   const dateInputEl = document.getElementById('appointment-date');
+  const hintSpan = document.getElementById('chamber-hint-span');
+  if (!form || !chamberSelect || !timeSelect) return;
+
+  // Chamber schedules & slot configurations
+  const chamberSchedules = {
+    'chamber-1': {
+      id: 'chamber-1',
+      name: 'Concord Stem Cell Limited (Dhanmondi 27)',
+      shortName: 'Concord Stem Cell Limited',
+      days: 'Saturday, Monday, Tuesday',
+      hours: '03:00 PM — 05:00 PM',
+      phone: '10670',
+      whatsapp: '',
+      slots: [
+        '03:00 PM — 04:00 PM (Afternoon Window)',
+        '04:00 PM — 05:00 PM (Late Afternoon Window)'
+      ]
+    },
+    'chamber-2': {
+      id: 'chamber-2',
+      name: 'Dhaka Specialized Hospital (Uttara Sector 13)',
+      shortName: 'Dhaka Specialized Hospital',
+      days: 'Saturday to Thursday',
+      hours: '06:00 PM — 10:00 PM',
+      phone: '01407099500',
+      whatsapp: '8801407099500',
+      slots: [
+        '06:00 PM — 07:30 PM (Early Evening Window)',
+        '07:30 PM — 09:00 PM (Prime Evening Window)',
+        '09:00 PM — 10:00 PM (Night Window)'
+      ]
+    }
+  };
+
+  function updateChamberTimeSlots(chamberId) {
+    const config = chamberSchedules[chamberId] || chamberSchedules['chamber-1'];
+    
+    // Update schedule hint label
+    if (hintSpan) {
+      hintSpan.textContent = `Visiting: ${config.days} | ${config.hours}`;
+    }
+
+    // Rebuild time select options
+    timeSelect.innerHTML = `<option value="">-- Choose Time Window for ${config.shortName} --</option>`;
+    config.slots.forEach(slot => {
+      const opt = document.createElement('option');
+      opt.value = slot;
+      opt.textContent = slot;
+      timeSelect.appendChild(opt);
+    });
+
+    markValid(timeSelect);
+  }
+
+  // Initialize slots for default chamber
+  updateChamberTimeSlots(chamberSelect.value);
+
+  // Update on chamber select change
+  chamberSelect.addEventListener('change', (e) => {
+    updateChamberTimeSlots(e.target.value);
+  });
+
+  // Link Chamber section buttons to automatically pre-select chamber in form
+  document.querySelectorAll('[data-select-chamber]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const chamberKey = btn.getAttribute('data-select-chamber');
+      if (chamberKey && chamberSchedules[chamberKey]) {
+        chamberSelect.value = chamberKey;
+        updateChamberTimeSlots(chamberKey);
+      }
+    });
+  });
+
   if (dateInputEl) {
     const today = new Date().toISOString().split('T')[0];
     dateInputEl.setAttribute('min', today);
@@ -184,7 +257,7 @@ function initAppointmentForm() {
       markValid(nameInput);
     }
 
-    // Validate Phone (at least 10 digits)
+    // Validate Phone (at least 9 digits)
     const phoneClean = phoneInput.value.replace(/\D/g, '');
     if (!phoneClean || phoneClean.length < 9) {
       markInvalid(phoneInput, 'Please provide a valid phone/mobile number.');
@@ -203,7 +276,7 @@ function initAppointmentForm() {
 
     // Validate Time Slot
     if (!timeInput.value) {
-      markInvalid(timeInput, 'Please select a preferred consultation time slot.');
+      markInvalid(timeInput, 'Please select an available consultation time slot.');
       isValid = false;
     } else {
       markValid(timeInput);
@@ -218,6 +291,13 @@ function initAppointmentForm() {
     }
 
     if (isValid) {
+      const selectedChamberConfig = chamberSchedules[chamberSelect.value] || chamberSchedules['chamber-1'];
+      const patientName = nameInput.value.trim();
+      const patientPhone = phoneInput.value.trim();
+      const selectedDate = dateInput.value;
+      const selectedSlot = timeInput.value;
+      const symptoms = messageInput.value.trim();
+
       const submitBtn = form.querySelector('button[type="submit"]');
       const originalText = submitBtn.innerHTML;
       submitBtn.disabled = true;
@@ -225,23 +305,40 @@ function initAppointmentForm() {
 
       setTimeout(() => {
         form.reset();
+        // Restore chamber and slots after reset
+        chamberSelect.value = selectedChamberConfig.id;
+        updateChamberTimeSlots(selectedChamberConfig.id);
+
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
 
         if (toast) {
+          const waMessage = encodeURIComponent(
+            `Appointment Request:\n- Patient: ${patientName}\n- Phone: ${patientPhone}\n- Chamber: ${selectedChamberConfig.name}\n- Date: ${selectedDate}\n- Time: ${selectedSlot}\n- Symptoms: ${symptoms}`
+          );
+
           toast.className = 'form-toast success';
           toast.innerHTML = `
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            <div>
-              <strong>Appointment Request Received!</strong>
-              <p style="font-size:0.85rem; margin:0; color:#15803d;">Our chamber representative will call your number shortly to confirm your serial and visiting time.</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <div style="flex:1;">
+              <strong style="font-size:0.98rem; display:block; margin-bottom:2px;">Appointment Request Received!</strong>
+              <p style="font-size:0.86rem; margin:0 0 6px 0; color:#15803d;">
+                Reserved for <strong>${patientName}</strong> at <strong>${selectedChamberConfig.shortName}</strong> on <strong>${selectedDate}</strong> (${selectedSlot}). Our serial assistant will call ${patientPhone} to confirm.
+              </p>
+              ${
+                selectedChamberConfig.whatsapp
+                  ? `<a href="https://wa.me/${selectedChamberConfig.whatsapp}?text=${waMessage}" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:6px; font-size:0.82rem; font-weight:700; color:#166534; text-decoration:underline;">
+                      Send copy directly via WhatsApp (${selectedChamberConfig.phone}) &rarr;
+                    </a>`
+                  : `<span style="font-size:0.82rem; color:#166534;">For instant serial confirmation, call Hotline: <strong>${selectedChamberConfig.phone}</strong></span>`
+              }
             </div>
           `;
           toast.style.display = 'flex';
 
           setTimeout(() => {
             toast.style.display = 'none';
-          }, 8000);
+          }, 12000);
         }
       }, 700);
     }
